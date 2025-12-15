@@ -39,6 +39,7 @@ DEBUG = bool(env("DEBUG", default=0))
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 APPEND_SLASH = False
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
