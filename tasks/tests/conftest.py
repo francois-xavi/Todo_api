@@ -1,9 +1,20 @@
-# ============================================================
-# tasks/tests/conftest.py - Fixtures spécifiques à tasks
-# ============================================================
 import pytest
 from tasks.models import Task
 
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+
+@pytest.fixture
+def another_user(db):
+    """Second utilisateur pour tests de permissions"""
+    return User.objects.create_user(
+        email='another@example.com',
+        password='TestPass123!',
+        first_name='Another',
+        last_name='User'
+    )
 
 @pytest.fixture
 def task_data():

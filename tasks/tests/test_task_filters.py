@@ -23,5 +23,5 @@ class TestTaskFilters:
         
         assert response.status_code == status.HTTP_200_OK
         assert all(not item['is_completed'] for item in response.data)
-        assert len(response.data) == 2
+        assert response.data['count'] == 2
 

@@ -26,8 +26,5 @@
             "src": "/(.*)",
             "dest": "config/wsgi.py"
         }
-    ],
-    "env": {
-        "DEBUG": "False"
-    }
+    ]
 }
