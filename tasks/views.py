@@ -15,6 +15,10 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = TaskFilter
     
+    def get_queryset(self):
+        """Get queryset for the current user"""
+        return Task.objects.filter(author=self.request.user)
+    
     @action_decorator(detail=True, methods=['post'], url_name='toggle-complete', url_path='toggle-complete')
     def toggle_complete(self, request, pk=None):
         """custom action to toggle the completion status of a task"""

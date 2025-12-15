@@ -43,12 +43,10 @@ def expired_otp(user):
     from django.utils import timezone
     from datetime import timedelta
     
-    otp = OTPCode.objects.create(
+    past_time = timezone.now() - timedelta(minutes=15)
+    return OTPCode.objects.create(
         user=user,
         otp_type=OTPType.EMAIL,
-        purpose=OTPPurpose.PASSWORD_RESET
+        purpose=OTPPurpose.PASSWORD_RESET,
+        expires_at=past_time
     )
-    # Forcer l'expiration
-    otp.created_at = timezone.now() - timedelta(minutes=20)
-    otp.save()
-    return otp

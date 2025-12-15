@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
     'django_filters',
 
 ]
+SWAGGER_USE_COMPAT_RENDERERS = False
 
 INSTALLED_APPS = [
     'django.contrib.admin',

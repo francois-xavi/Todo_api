@@ -22,3 +22,10 @@ class TaskSerializer(serializers.ModelSerializer):
         if 'description' in data and data['description']:
             data['description'] = data['description'].strip()
         return data
+
+
+    def create(self, validated_data):
+        """Create a task"""
+        user = self.context['request'].user
+        validated_data['author'] = user
+        return Task.objects.create(**validated_data)

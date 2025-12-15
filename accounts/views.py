@@ -262,7 +262,10 @@ class AuthViewSet(viewsets.GenericViewSet):
         }
         """
         serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        is_valid = serializer.is_valid(raise_exception=True)
+        
+        if not is_valid:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         user = serializer.validated_data['user']
         otp = serializer.validated_data['otp']
