@@ -46,6 +46,7 @@ urlpatterns = [
 
     # API
     path("api/", include("tasks.urls")),
+    path("api/", include("accounts.urls")),
 
     # Admin
     path('manage/', admin.site.urls),

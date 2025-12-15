@@ -44,6 +44,7 @@ APPEND_SLASH = False
 # Application definition
 LOCAL_APPS = [
     'tasks',
+    'accounts',
 ]
 
 THIRD_PARTY_APPS = [
@@ -115,7 +116,7 @@ else:
     }
 
 
-# AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
