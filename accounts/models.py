@@ -5,7 +5,8 @@ from datetime import timedelta
 import random
 import string
 from core.services.text_choices_models import OTPType, OTPPurpose
-
+from rest_framework_simplejwt.tokens import RefreshToken
+from .managers import UserManager
 class User(AbstractUser):
     """
     Custom User model with additional fields
@@ -18,6 +19,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+    objects = UserManager()
 
     class Meta:
         verbose_name = "Utilisateur"

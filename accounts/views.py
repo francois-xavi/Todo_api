@@ -108,35 +108,6 @@ class AuthViewSet(viewsets.GenericViewSet):
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-    # @swagger_auto_schema(
-    #     operation_description="Logout user (blacklist refresh token)",
-    #     operation_summary="Logout"
-    # )
-    # @action_decorator(
-    #     detail=False,
-    #     methods=['post'],
-    #     url_path='logout',
-    #     permission_classes=[permissions.IsAuthenticated]
-    # )
-    # def logout(self, request):
-    #     """
-    #     POST /api/auth/logout/
-    #     {
-    #         "refresh": "refresh_token_here"
-    #     }
-    #     """
-    #     try:
-    #         refresh_token = request.data.get("refresh")
-    #         token = RefreshToken(refresh_token)
-    #         token.blacklist()
-    #         return Response({
-    #             'message': 'Logout successful'
-    #         }, status=status.HTTP_200_OK)
-    #     except Exception as e:
-    #         return Response({
-    #             'error': 'Invalid token'
-    #         }, status=status.HTTP_400_BAD_REQUEST)
-    
     @swagger_auto_schema(
         operation_description="Get authenticated user profile",
         operation_summary="Get profile"
