@@ -22,6 +22,6 @@ class TestTaskFilters:
         response = authenticated_client.get(url)
         
         assert response.status_code == status.HTTP_200_OK
-        assert all(not item['is_completed'] for item in response.data)
+        assert all(not item['is_completed'] for item in response.data['data'])
         assert response.data['count'] == 2
 
